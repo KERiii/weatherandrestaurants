@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:paddingLeft="24dp"
+    android:paddingTop="24dp">
+
+    <TextView
+        android:id="@+id/weatherLocation"
+        style="@style/Font.Bold.Brown.28"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Dubai"/>
+
+    <TextView
+        android:id="@+id/weatherDay"
+        style="@style/Font.Bold.LightBrown.18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@id/weatherLocation"
+        app:layout_constraintTop_toBottomOf="@id/weatherLocation"
+        tools:text="Sunday"/>
+
+    <TextView
+        android:id="@+id/weatherForecast"
+        style="@style/Font.Bold.LightBrown.14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@id/weatherDay"
+        app:layout_constraintTop_toBottomOf="@id/weatherDay"
+        tools:text="Cloudy"/>
+
+    <Button
+        android:id="@+id/weatherRestaurants"
+        style="@style/RoundButton"
+        android:layout_width="wrap_content"
+        android:layout_height="26dp"
+        android:layout_marginRight="20dp"
+        android:text="@string/popular_restaurants"
+        app:layout_constraintBottom_toBottomOf="@id/weatherLocation"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/weatherLocation"/>
+
+    <ImageView
+        android:id="@+id/weatherImage"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="50dp"
+        android:src="@mipmap/ic_launcher"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/weatherTemperature"
+        app:layout_constraintTop_toBottomOf="@id/weatherForecast"/>
+
+    <TextView
+        android:id="@+id/weatherTemperature"
+        style="@style/Font.Bold.Brown.78"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@id/weatherImage"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/weatherImage"
+        app:layout_constraintBottom_toBottomOf="@id/weatherImage"
+        tools:text="32"/>
+
+    <TextView
+        android:id="@+id/weatherDegree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/weatherTemperature"
+        app:layout_constraintLeft_toRightOf="@id/weatherTemperature"
+        style="@style/Font.Bold.Brown.18"
+        android:text="°C"/>
+
+</android.support.constraint.ConstraintLayout>

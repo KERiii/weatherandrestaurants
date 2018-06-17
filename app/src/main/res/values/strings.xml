@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">WeatherAndRestaurants</string>
+    <string name="popular_restaurants">Popular restaurants</string>
 </resources>
