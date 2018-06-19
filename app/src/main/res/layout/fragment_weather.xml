@@ -11,10 +11,13 @@
     <TextView
         android:id="@+id/weatherLocation"
         style="@style/Font.Bold.Brown.28"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="24dp"
+        android:singleLine="true"
+        android:text="-"
         app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/weatherRestaurants"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Dubai"/>
 
@@ -23,6 +26,7 @@
         style="@style/Font.Bold.LightBrown.18"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="-"
         app:layout_constraintLeft_toLeftOf="@id/weatherLocation"
         app:layout_constraintTop_toBottomOf="@id/weatherLocation"
         tools:text="Sunday"/>
@@ -32,6 +36,7 @@
         style="@style/Font.Bold.LightBrown.14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="-"
         app:layout_constraintLeft_toLeftOf="@id/weatherDay"
         app:layout_constraintTop_toBottomOf="@id/weatherDay"
         tools:text="Cloudy"/>
@@ -49,15 +54,15 @@
 
     <ImageView
         android:id="@+id/weatherImage"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_marginTop="50dp"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
         android:layout_marginLeft="16dp"
-        tools:src="@mipmap/ic_launcher"
+        android:layout_marginTop="50dp"
         app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/weatherTemperature"
-        app:layout_constraintTop_toBottomOf="@id/weatherForecast"/>
+        app:layout_constraintTop_toBottomOf="@id/weatherForecast"
+        tools:src="@mipmap/ic_launcher"/>
 
     <TextView
         android:id="@+id/weatherTemperature"
@@ -65,6 +70,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="16dp"
+        android:text="-"
         app:layout_constraintBottom_toBottomOf="@id/weatherImage"
         app:layout_constraintLeft_toRightOf="@id/weatherImage"
         app:layout_constraintRight_toRightOf="parent"
@@ -76,26 +82,31 @@
         style="@style/Font.Bold.Brown.18"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="°C"
+        android:text="@string/celsius"
         app:layout_constraintLeft_toRightOf="@id/weatherTemperature"
         app:layout_constraintTop_toTopOf="@id/weatherTemperature"/>
 
     <android.support.v4.view.ViewPager
-        app:layout_constraintBottom_toTopOf="@+id/weatherGuideline"
-        app:layout_constraintTop_toBottomOf="@id/weatherImage"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="12dp"
         android:id="@+id/weatherViewPager"
         android:layout_width="0dp"
-        android:layout_height="0dp">
-
-        <android.support.design.widget.TabLayout
-            android:id="@+id/weatherTabLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+        android:layout_height="0dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintBottom_toTopOf="@+id/weatherTabLayout"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/weatherImage">
 
     </android.support.v4.view.ViewPager>
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/weatherTabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/weatherGuideline"
+        app:layout_constraintTop_toBottomOf="@id/weatherViewPager"
+        app:tabBackground="@drawable/pager_dot_selector"
+        app:tabGravity="center"
+        app:tabIndicatorHeight="0dp"/>
 
     <android.support.constraint.Guideline
         android:id="@+id/weatherGuideline"

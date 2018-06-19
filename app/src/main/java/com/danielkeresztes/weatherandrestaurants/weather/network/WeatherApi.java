@@ -12,5 +12,5 @@ import retrofit2.http.QueryMap;
 public interface WeatherApi {
 
     @GET("weather")
-    Single<CurrentWeather> getCurrentWeatherByGeoCoordinates(@QueryMap Map<String, String> optionse);
+    Single<CurrentWeather> getCurrentWeatherByGeoCoordinates(@QueryMap Map<String, String> query);
 }

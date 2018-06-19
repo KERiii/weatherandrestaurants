@@ -5,6 +5,7 @@
     <color name="colorAccent">#FF4081</color>
     <color name="brown">#5B4224</color>
     <color name="brown_dark">#CDA16A</color>
+    <color name="dot_selected">#DEA055</color>
     <color name="brown_light">#8C6639</color>
     <color name="white">#ffffff</color>
 </resources>

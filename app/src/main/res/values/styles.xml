@@ -22,11 +22,19 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="Font.Normal">
+        <item name="android:textStyle">normal</item>
+    </style>
+
     <style name="Font.Bold.Brown">
         <item name="android:textColor">@color/brown</item>
     </style>
 
     <style name="Font.Bold.LightBrown">
+        <item name="android:textColor">@color/brown_light</item>
+    </style>
+
+    <style name="Font.Normal.LightBrown">
         <item name="android:textColor">@color/brown_light</item>
     </style>
 
@@ -48,6 +56,10 @@
 
     <style name="Font.Bold.Brown.78">
         <item name="android:textSize">78sp</item>
+    </style>
+
+    <style name="Font.Normal.LightBrown.14">
+        <item name="android:textSize">14sp</item>
     </style>
 
 

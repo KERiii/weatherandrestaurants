@@ -55,6 +55,12 @@ public class WeatherRepository {
         model.setForecast(currentWeather.getWeatherArray().get(0).getMain());
         model.setTemperature(currentWeather.getMain().getTemp());
         model.setWeatherId(currentWeather.getWeatherArray().get(0).getId());
+        model.setHumidity(currentWeather.getMain().getHumidity());
+        model.setPressure(currentWeather.getMain().getPressure());
+        model.setWind(currentWeather.getWind().getSpeed());
+        model.setSunRise(currentWeather.getSys().getSunrise());
+        model.setSunSet(currentWeather.getSys().getSunset());
+        model.setVisibility(currentWeather.getVisibility());
         return model;
     }
 }

@@ -1,4 +1,15 @@
 <resources>
     <string name="app_name">WeatherAndRestaurants</string>
     <string name="popular_restaurants">Popular restaurants</string>
+    <string name="celsius">°C</string>
+    <string name="wind">Wind</string>
+    <string name="kmh">km/h</string>
+    <string name="hpa">hPa</string>
+    <string name="percent">%</string>
+    <string name="pressure">Pressure</string>
+    <string name="humidity">Humidity</string>
+    <string name="sunrise">Sunrise</string>
+    <string name="sunset">Sunset</string>
+    <string name="visibility">Visibility</string>
+    <string name="meter">m</string>
 </resources>

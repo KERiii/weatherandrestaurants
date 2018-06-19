@@ -28,6 +28,18 @@ public class CurrentWeather {
     @SerializedName("dt")
     private Long dt;
 
+    public long getVisibility() {
+        return visibility;
+    }
+
+    public void setVisibility(long visibility) {
+        this.visibility = visibility;
+    }
+
+    @SerializedName("visibility")
+
+    private long visibility;
+
     @SerializedName("sys")
     private Sys mSys;
 

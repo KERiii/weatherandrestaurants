@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <TextView
+        android:id="@+id/forecastDetailOne"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/Font.Bold.Brown.18"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/forecastDetailTwo"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        tools:text="45%"
+        android:text="-"/>
+
+    <TextView
+        android:id="@+id/forecastDetailOneCaption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/forecastDetailOne"
+        app:layout_constraintLeft_toLeftOf="@id/forecastDetailOne"
+        app:layout_constraintRight_toRightOf="@id/forecastDetailOne"
+        style="@style/Font.Normal.LightBrown.14"
+        tools:text="Humidity"
+        android:text="-"/>
+
+    <TextView
+        android:id="@+id/forecastDetailTwo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/forecastDetailOne"
+        app:layout_constraintRight_toLeftOf="@id/forecastDetailThree"
+        style="@style/Font.Bold.Brown.18"
+        tools:text="65%"
+        android:text="-"/>
+
+    <TextView
+        android:id="@+id/forecastDetailTwoCaption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/forecastDetailTwo"
+        app:layout_constraintLeft_toLeftOf="@id/forecastDetailTwo"
+        app:layout_constraintRight_toRightOf="@id/forecastDetailTwo"
+        style="@style/Font.Normal.LightBrown.14"
+        tools:text="Precipitation"
+        android:text="-"/>
+
+    <TextView
+        android:id="@+id/forecastDetailThree"
+        android:layout_width="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/forecastDetailTwo"
+        android:layout_height="wrap_content"
+        style="@style/Font.Bold.Brown.18"
+        tools:text="45km/h"
+        android:text="-"/>
+
+    <TextView
+        android:id="@+id/forecastDetailThreeCaption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/Font.Normal.LightBrown.14"
+        app:layout_constraintTop_toBottomOf="@id/forecastDetailThree"
+        app:layout_constraintLeft_toLeftOf="@id/forecastDetailThree"
+        app:layout_constraintRight_toRightOf="@id/forecastDetailThree"
+        tools:text="Wind"
+        android:text="-"/>
+
+</android.support.constraint.ConstraintLayout>

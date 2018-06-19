@@ -3,8 +3,9 @@ package com.danielkeresztes.weatherandrestaurants.weather;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +14,6 @@ import android.widget.TextView;
 
 import com.danielkeresztes.weatherandrestaurants.R;
 import com.danielkeresztes.weatherandrestaurants.weather.domain.CurrentWeatherModel;
-import com.squareup.picasso.Picasso;
 
 import java.util.Calendar;
 import java.util.Locale;
@@ -37,6 +37,10 @@ public class WeatherFragment extends Fragment implements WeatherContract.View {
     TextView degree;
     @BindView(R.id.weatherImage)
     ImageView image;
+    @BindView(R.id.weatherViewPager)
+    ViewPager viewPager;
+    @BindView(R.id.weatherTabLayout)
+    TabLayout tabLayout;
 
     private Unbinder unbinder;
     private WeatherContract.Presenter presenter;
@@ -85,11 +89,25 @@ public class WeatherFragment extends Fragment implements WeatherContract.View {
         location.setText(currentWeatherModel.getCity());
         forecast.setText(currentWeatherModel.getForecast());
         temperature.setText(String.valueOf(Math.round(currentWeatherModel.getTemperature())));
-        image.setImageResource(R.drawable.ic_clear);
+        setWeatherIcon(currentWeatherModel.getWeatherId());
+
+        WeatherPagerAdapter weatherPagerAdapter = new WeatherPagerAdapter(getActivity(), getFragmentManager(), currentWeatherModel);
+        viewPager.setAdapter(weatherPagerAdapter);
+        tabLayout.setupWithViewPager(viewPager);
+    }
+
+    private void setWeatherIcon(int weatherid) {
+        if (weatherid == 800) {
+            image.setImageResource(R.drawable.ic_clear);
+        } else if (weatherid < 800) {
+            image.setImageResource(R.drawable.ic_rain);
+        } else {
+            image.setImageResource(R.drawable.ic_clouds);
+        }
     }
 
     @Override
-    public void onForecastLoaded() {
+    public void onForecastLoaded(CurrentWeatherModel c) {
 
     }
 }
