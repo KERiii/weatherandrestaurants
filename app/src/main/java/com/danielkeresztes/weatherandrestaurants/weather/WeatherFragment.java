@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.danielkeresztes.weatherandrestaurants.R;
@@ -29,6 +30,8 @@ import butterknife.Unbinder;
 
 public class WeatherFragment extends Fragment implements WeatherContract.View {
 
+    @BindView(R.id.weatherProgressBar)
+    ProgressBar progressBar;
     @BindView(R.id.weatherLocation)
     TextView location;
     @BindView(R.id.weatherDay)
@@ -62,6 +65,7 @@ public class WeatherFragment extends Fragment implements WeatherContract.View {
     @Override
     public void onResume() {
         super.onResume();
+        progressBar.setVisibility(View.VISIBLE);
         presenter.start();
     }
 
@@ -119,5 +123,6 @@ public class WeatherFragment extends Fragment implements WeatherContract.View {
         recyclerView.setLayoutManager(linearLayoutManager);
         ForecastAdapter forecastAdapter = new ForecastAdapter(forecastModels);
         recyclerView.setAdapter(forecastAdapter);
+        progressBar.setVisibility(View.INVISIBLE);
     }
 }

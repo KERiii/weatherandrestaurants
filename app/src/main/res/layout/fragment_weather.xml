@@ -5,8 +5,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
-    android:paddingTop="24dp">
+    android:background="@color/colorPrimary">
+
+    <ProgressBar
+        android:id="@+id/weatherProgressBar"
+        style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:visibility="invisible"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
         android:id="@+id/weatherLocation"
@@ -14,6 +24,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="24dp"
+        android:layout_marginTop="24dp"
         android:singleLine="true"
         android:text="-"
         app:layout_constraintLeft_toLeftOf="parent"

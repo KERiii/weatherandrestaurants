@@ -39,15 +39,21 @@ public class WeatherActivity extends AppCompatActivity {
     @SuppressLint("MissingPermission")
     private void getLocation() {
         rxPermissions.request(Manifest.permission.ACCESS_COARSE_LOCATION)
-                .subscribe(provided -> locationProviderClient.getLastLocation()
-                        .addOnSuccessListener(this, location -> {
-                            if (location != null) {
-                                weatherPresenter.onLocationLoaded(new LocationModel(location.getLatitude(), location.getLongitude()));
-                                getSupportFragmentManager().beginTransaction()
-                                        .add(R.id.content, weatherFragment)
-                                        .commit();
-                            }
-                        }));
+                .subscribe(provided -> {
+                    if (provided) {
+                        locationProviderClient.getLastLocation()
+                                .addOnSuccessListener(this, location -> {
+                                    if (location != null) {
+                                        weatherPresenter.onLocationLoaded(new LocationModel(location.getLatitude(), location.getLongitude()));
+                                        getSupportFragmentManager().beginTransaction()
+                                                .add(R.id.content, weatherFragment)
+                                                .commit();
+                                    }
+                                });
+                    } else {
+                        getLocation();
+                    }
+                });
 
     }
 }
