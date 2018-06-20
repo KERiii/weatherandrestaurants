@@ -1,5 +1,6 @@
 package com.danielkeresztes.weatherandrestaurants.weather;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -16,6 +17,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.danielkeresztes.weatherandrestaurants.R;
+import com.danielkeresztes.weatherandrestaurants.restaurant.RestaurantsActivity;
 import com.danielkeresztes.weatherandrestaurants.weather.domain.CurrentWeatherModel;
 import com.danielkeresztes.weatherandrestaurants.weather.domain.ForecastModel;
 
@@ -25,6 +27,7 @@ import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.Unbinder;
 
 
@@ -67,6 +70,12 @@ public class WeatherFragment extends Fragment implements WeatherContract.View {
         super.onResume();
         progressBar.setVisibility(View.VISIBLE);
         presenter.start();
+    }
+
+    @OnClick(R.id.weatherRestaurants)
+    void onRestaurantsClick() {
+        Intent intent = new Intent(getActivity(), RestaurantsActivity.class);
+        getActivity().startActivity(intent);
     }
 
     @Nullable
