@@ -6,6 +6,8 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,8 +16,10 @@ import android.widget.TextView;
 
 import com.danielkeresztes.weatherandrestaurants.R;
 import com.danielkeresztes.weatherandrestaurants.weather.domain.CurrentWeatherModel;
+import com.danielkeresztes.weatherandrestaurants.weather.domain.ForecastModel;
 
 import java.util.Calendar;
+import java.util.List;
 import java.util.Locale;
 
 import butterknife.BindView;
@@ -41,6 +45,8 @@ public class WeatherFragment extends Fragment implements WeatherContract.View {
     ViewPager viewPager;
     @BindView(R.id.weatherTabLayout)
     TabLayout tabLayout;
+    @BindView(R.id.weatherRecyclerView)
+    RecyclerView recyclerView;
 
     private Unbinder unbinder;
     private WeatherContract.Presenter presenter;
@@ -107,7 +113,11 @@ public class WeatherFragment extends Fragment implements WeatherContract.View {
     }
 
     @Override
-    public void onForecastLoaded(CurrentWeatherModel c) {
-
+    public void onForecastLoaded(List<ForecastModel> forecastModels) {
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(linearLayoutManager);
+        ForecastAdapter forecastAdapter = new ForecastAdapter(forecastModels);
+        recyclerView.setAdapter(forecastAdapter);
     }
 }

@@ -31,7 +31,9 @@ public class WeatherPresenter implements WeatherContract.Presenter {
     }
 
     private void getForecast() {
-
+        repository.getForecastModels()
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(forecastModels -> view.onForecastLoaded(forecastModels));
     }
 
     @Override

@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import com.danielkeresztes.weatherandrestaurants.R;
+import com.danielkeresztes.weatherandrestaurants.util.DateUtil;
 import com.danielkeresztes.weatherandrestaurants.weather.domain.CurrentWeatherModel;
 
 import java.text.SimpleDateFormat;
@@ -45,9 +46,9 @@ public class WeatherPagerAdapter extends FragmentPagerAdapter {
             case 1:
                 ForecastDetailFragment detailFragmentTwo = new ForecastDetailFragment();
                 Bundle bundle2 = new Bundle();
-                bundle2.putString(ForecastDetailFragment.ARG_DETAIL_ONE, createDate(currentWeatherModel.getSunRise()));
+                bundle2.putString(ForecastDetailFragment.ARG_DETAIL_ONE, DateUtil.getTimeWithPeriod(currentWeatherModel.getSunRise()));
                 bundle2.putString(ForecastDetailFragment.ARG_DETAIL_ONE_CAPTION, context.getString(R.string.sunrise));
-                bundle2.putString(ForecastDetailFragment.ARG_DETAIL_TWO, createDate(currentWeatherModel.getSunSet()));
+                bundle2.putString(ForecastDetailFragment.ARG_DETAIL_TWO, DateUtil.getTimeWithPeriod(currentWeatherModel.getSunSet()));
                 bundle2.putString(ForecastDetailFragment.ARG_DETAIL_TWO_CAPTION, context.getString(R.string.sunset));
                 bundle2.putString(ForecastDetailFragment.ARG_DETAIL_THREE, String.valueOf(Math.round(currentWeatherModel.getVisibility()))
                         + context.getString(R.string.meter));
@@ -62,9 +63,5 @@ public class WeatherPagerAdapter extends FragmentPagerAdapter {
         return 2;
     }
 
-    private String createDate(long timeStamp) {
-        Date dt = new Date(timeStamp * 1000);
-        SimpleDateFormat sdf = new SimpleDateFormat("hh:mm aa");
-        return sdf.format(dt);
-    }
+
 }
